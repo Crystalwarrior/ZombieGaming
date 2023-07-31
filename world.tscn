@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwlll3umbcn58"]
+
+[ext_resource type="PackedScene" uid="uid://cb47gdhlak60v" path="res://player.tscn" id="1_mskop"]
+[ext_resource type="Texture2D" uid="uid://jv6c22u7isey" path="res://icon.svg" id="2_ugjfr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5ejx"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b3bdv"]
+size = Vector2(4, 128)
+
+[node name="World" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_mskop")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position_smoothing_enabled = true
+position_smoothing_speed = 24.0
+
+[node name="wall" type="StaticBody2D" parent="."]
+position = Vector2(383, 0)
+collision_layer = 7
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="wall"]
+texture = ExtResource("2_ugjfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall"]
+shape = SubResource("RectangleShape2D_t5ejx")
+
+[node name="wall2" type="StaticBody2D" parent="."]
+position = Vector2(110, 175)
+collision_layer = 7
+collision_mask = 7
+metadata/_edit_group_ = true
+
+[node name="Icon" type="Sprite2D" parent="wall2"]
+scale = Vector2(0.03125, 1)
+texture = ExtResource("2_ugjfr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall2"]
+shape = SubResource("RectangleShape2D_b3bdv")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(-515, -22)
+texture = ExtResource("2_ugjfr")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-369, 393)
+texture = ExtResource("2_ugjfr")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(462, -325)
+texture = ExtResource("2_ugjfr")

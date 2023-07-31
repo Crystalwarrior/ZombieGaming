@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb47gdhlak60v"]
+
+[ext_resource type="Texture2D" uid="uid://jv6c22u7isey" path="res://icon.svg" id="1_3eymn"]
+[ext_resource type="Script" path="res://player.gd" id="1_tac5x"]
+[ext_resource type="PackedScene" uid="uid://dmftdhxf5keyo" path="res://projectile.tscn" id="2_6n6dx"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_exv7h"]
+radius = 49.0102
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_tac5x")
+projectile = ExtResource("2_6n6dx")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("1_3eymn")
+
+[node name="arm" type="Marker2D" parent="."]
+position = Vector2(32, 0)
+rotation = 1.5708
+
+[node name="Gun" type="Sprite2D" parent="arm"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(0.063, 0.181)
+texture = ExtResource("1_3eymn")
+
+[node name="muzzle" type="Marker2D" parent="arm"]
+position = Vector2(0, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_exv7h")
